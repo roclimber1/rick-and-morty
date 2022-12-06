@@ -6,10 +6,8 @@ module.exports = {
     'extends': [
         'eslint:recommended',
         'plugin:react/recommended',
-        'plugin:jsdoc/recommended',
-        'plugin:@typescript-eslint/recommended'
+        'plugin:jsdoc/recommended'
     ],
-    'parser': '@typescript-eslint/parser',
     'parserOptions': {
         'ecmaFeatures': {
             'jsx': true
@@ -19,8 +17,7 @@ module.exports = {
     },
     'plugins': [
         'react',
-        'jsdoc',
-        '@typescript-eslint'
+        'jsdoc'
     ],
     'rules': {
         'camelcase': ['warn', { 'properties': 'always' }],
@@ -63,7 +60,7 @@ module.exports = {
             'arraysInObjects': false,
             'objectsInObjects': false
         }],
-        
+
         'array-bracket-spacing': ['error', 'never', {
             'arraysInArrays': false,
             'objectsInArrays': false,
@@ -92,7 +89,7 @@ module.exports = {
         'jsdoc/newline-after-description': ['error' | 'warn', 'never'],
 
         'brace-style': 'error',
-        
+
         'curly': 'error',
 
         'padding-line-between-statements': [
