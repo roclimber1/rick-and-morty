@@ -15,8 +15,8 @@ const BaseCard = styled.section`
     height: fit-content;
 
     background: none;
-    border: 1px solid #666;
     border-radius: 5px;
+    box-shadow: 1px 1px 6px #666;
 
     margin: 5px;
     padding: 10px;
@@ -26,17 +26,14 @@ const BaseCard = styled.section`
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
 
     &:hover {
-        background: #ccc;
-        border: 1px solid #fffc;
+        background: #cccc;
         color: #fff;
     }
 
     &:active {
-        opacity: 0.7;
+        opacity: 0.9;
     }
 `
 

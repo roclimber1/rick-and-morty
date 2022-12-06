@@ -3,10 +3,18 @@
 
 import React from 'react'
 
+import { Route, Routes, HashRouter as Router } from 'react-router-dom'
+import Details from './Details'
 
-import RandomCharacterCard from '../components/RandomCharacterCard'
-import Wrapper from '../components/Wrapper'
 
+import Home from './RandomCharacter'
+import List from './List'
+
+
+import { URLS_LIST } from '../constants/main'
+
+
+import RoutesLayout from '../components/RoutesLayout'
 
 
 
@@ -14,13 +22,26 @@ import Wrapper from '../components/Wrapper'
 const App = () => {
 
 
-    return (<Wrapper>
+    return <Router>
 
-        <RandomCharacterCard />
+        <Routes>
 
-    </Wrapper>)
+            <Route element={<RoutesLayout />}>
+
+                <Route path={URLS_LIST.HOME} element={<Home />} />
+
+                <Route path={URLS_LIST.LIST} element={<List />} />
+
+                <Route path={`${URLS_LIST.LIST}/${URLS_LIST.DETAILS}`} element={<Details />} />
+
+                <Route element={<Home />} />
+
+            </Route>
+
+        </Routes>
+
+    </Router>
 }
-
 
 
 

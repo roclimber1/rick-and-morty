@@ -12,6 +12,8 @@ const Image = styled(Box)`
     background-repeat: no-repeat;
     background-size: cover;
 
+    border-radius: 5px;
+
     margin: 5px;
     padding: 10px;
 `
