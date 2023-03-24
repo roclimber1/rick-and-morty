@@ -1,4 +1,4 @@
-# rick-and-morty-sandbox
+# rick-and-morty
 
 Простое приложение с использованием [The Rick and Morty API](https://rickandmortyapi.com/). Отображает случайного персонажа мультфильма, а также список персонажей с постраничной навигацией.
 
