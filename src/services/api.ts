@@ -36,9 +36,9 @@ export async function getCharacter<Data>(id: number): Promise<Data> {
  *
  * @param url
  */
-export async function getCharactersList<Data>(url: string = URL.CHARACTER): Promise<Data> {
+export async function getCharactersList<Data>(url: string): Promise<Data> {
 
-    return await getDataByUrl(url)
+    return await getDataByUrl(url || URL.CHARACTER)
 }
 
 

@@ -56,12 +56,14 @@ const List = () => {
     const handleNextPage = React.useCallback((): void => {
 
         next && setUrl(next)
+
     }, [next])
 
 
     const handlePrevPage = React.useCallback((): void => {
 
         prev && setUrl(prev)
+
     }, [prev])
 
 
