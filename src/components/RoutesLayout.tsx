@@ -12,9 +12,13 @@ import Footer from './Footer'
 
 
 
+interface LayoutProps {
+    children?: React.ReactNode
+}
 
 
-export const Layout = (props) => {
+
+export const Layout: React.FC<LayoutProps> = (props) => {
 
     const { children } = props
 
@@ -33,7 +37,7 @@ export const Layout = (props) => {
 
 
 
-const RoutesLayout = props => {
+const RoutesLayout: React.FC<LayoutProps> = (props) => {
 
 
     return <Layout {...props}>

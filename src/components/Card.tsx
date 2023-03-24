@@ -39,25 +39,31 @@ const BaseCard = styled.section`
 
 
 
+interface CardProps {
+    children?: React.ReactNode,
+    onClick: React.MouseEventHandler<HTMLElement>
+}
 
-const Card = (props) => {
-
-    const { children = null, name = '', onClick } = props
 
 
-    const handleClick = (event) => {
+const Card: React.FC<CardProps> = (props) => {
+
+    const { children = null, onClick } = props
+
+
+    const handleClick: React.MouseEventHandler<HTMLElement> = (event) => {
 
         onClick && onClick(event)
     }
 
 
     return (<BaseCard
-        name={name}
         onClick={handleClick}
     >
         {children}
     </BaseCard>)
 }
+
 
 
 export default Card

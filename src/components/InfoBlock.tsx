@@ -16,13 +16,27 @@ const Info = styled.section`
     padding: 5px;
 `
 
+
+interface InfoCenteredProps {
+    fontSize?: number | null,
+    centered?: boolean
+}
+
+
 const InfoCentered = styled(Info)`
-    font-size: ${props => props?.fontSize ? `${props.fontSize}px;` : '16px;'}
-    ${props => props?.centered ? 'justify-content: center;' : ''}
+    font-size: ${(props: InfoCenteredProps) => props?.fontSize ? `${props.fontSize}px;` : '16px;'}
+    ${(props: InfoCenteredProps) => props?.centered ? 'justify-content: center;' : ''}
 `
 
 
-const InfoBlock = (props) => {
+interface InfoBlockProps extends InfoCenteredProps {
+    field?: string,
+    value?: string
+}
+
+
+
+const InfoBlock: React.FC<InfoBlockProps> = (props) => {
 
     const { field = '', value = '', fontSize = null } = props
 

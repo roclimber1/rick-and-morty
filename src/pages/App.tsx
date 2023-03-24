@@ -19,7 +19,7 @@ import RoutesLayout from '../components/RoutesLayout'
 
 
 
-const App = () => {
+const App = (): JSX.Element => {
 
 
     return <Router>

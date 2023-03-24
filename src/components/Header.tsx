@@ -34,7 +34,12 @@ const HeaderLine = styled(Line)`
 `
 
 
-const Header = (props) => {
+interface HeaderProps {
+    title?: string
+}
+
+
+const Header: React.FC<HeaderProps> = (props) => {
 
     const { title = '' } = props
 

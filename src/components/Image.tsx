@@ -5,10 +5,15 @@ import styled from 'styled-components'
 import Box from './Box'
 
 
+interface ImageProps {
+    image?: string
+}
+
+
 
 const Image = styled(Box)`
 
-    background-image: ${props => props?.image ? `url(${props.image})` : 'none'};
+    background-image: ${(props: ImageProps) => props?.image ? `url(${props.image})` : 'none'};
     background-repeat: no-repeat;
     background-size: cover;
 
