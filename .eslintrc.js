@@ -6,8 +6,10 @@ module.exports = {
     'extends': [
         'eslint:recommended',
         'plugin:react/recommended',
-        'plugin:jsdoc/recommended'
+        'plugin:jsdoc/recommended',
+        'plugin:@typescript-eslint/recommended'
     ],
+    'parser': '@typescript-eslint/parser',
     'parserOptions': {
         'ecmaFeatures': {
             'jsx': true
@@ -17,7 +19,8 @@ module.exports = {
     },
     'plugins': [
         'react',
-        'jsdoc'
+        'jsdoc',
+        '@typescript-eslint'
     ],
     'rules': {
         'camelcase': ['warn', { 'properties': 'always' }],

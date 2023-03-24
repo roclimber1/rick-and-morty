@@ -2,7 +2,7 @@
 
 
 import React from 'react'
-import { Outlet, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 
 import CharacterCard from '../components/CharacterCard'
@@ -12,7 +12,6 @@ import Button from '../components/Button'
 
 import { ItemWrapper, ListWrapper } from '../components/Wrapper'
 
-import { Layout } from '../components/RoutesLayout'
 
 
 import useRequestProcessor from '../hooks/useRequestProcessor'
@@ -24,41 +23,64 @@ import { getCharactersList } from '../services/api'
 
 
 
+import type { NavigateFunction } from 'react-router-dom'
+import type { Character } from '../interfaces/main'
+
+
+
+
+interface ResponseData {
+    results: Array<Character>,
+    info: {
+        next: string,
+        prev: string
+    }
+}
+
+
+
+
 const List = () => {
 
-    const navigate = useNavigate()
+    const navigate: NavigateFunction = useNavigate()
 
-    const [url, setUrl] = React.useState()
+    const [url, setUrl] = React.useState<string>('')
 
-    const { loading, data } = useRequestProcessor({ requestData: getCharactersList, parameters: url })
+    const { loading, data } = useRequestProcessor<ResponseData, string>({ requestData: getCharactersList, parameters: url })
 
     const { info, results: characters } = data || {}
     const { next, prev } = info || {}
 
 
 
-    const handleNextPage = React.useCallback(() => {
+    const handleNextPage = React.useCallback((): void => {
 
         next && setUrl(next)
     }, [next])
 
 
-    const handlePrevPage = React.useCallback(() => {
+    const handlePrevPage = React.useCallback((): void => {
 
         prev && setUrl(prev)
     }, [prev])
 
 
+    const handleCardClick = (id: number): void => {
 
-    const charactersBlock = React.useMemo(() => {
+        navigate(`${id}`)
+    }
 
-        return (characters || []).map((item) => {
+
+
+    const charactersBlock = React.useMemo<Array<JSX.Element>>(() => {
+
+        return (characters || []).map((item: Character) => {
 
             const { id } = item
 
             return (<CharacterCard
                 data={item}
-                onClick={() => navigate(`${id}`)}
+                onClick={() => handleCardClick(id)}
                 key={`character-card-${id}`}
             />)
         })
@@ -69,11 +91,9 @@ const List = () => {
 
     return (<React.Fragment>
 
-        {/* <Layout> */}
-
         <ListWrapper>
 
-            {loading && <Loader />}
+            {loading && <Loader width={10} height={10} />}
 
             {!loading && <React.Fragment>
 
@@ -89,8 +109,6 @@ const List = () => {
 
             {Boolean(next) && <Button title={'Next page'} onClick={handleNextPage} />}
         </ItemWrapper>
-
-        {/* </Layout> */}
 
     </React.Fragment>)
 }

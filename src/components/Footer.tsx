@@ -28,32 +28,44 @@ const FooterLine = styled(Line)`
 `
 
 
+interface FooterProps {
+    text?: string
+}
 
-const Footer = (props) => {
+
+
+const Footer: React.FC<FooterProps> = (props) => {
 
     const navigate = useNavigate()
 
     const { text = '' } = props
 
 
+    const handleGoBack = () => navigate(-1)
+
+    const handleGoForward = () => navigate(1)
+
+
+
     return <React.Fragment>
 
         <ItemWrapper>
 
-            <Button title={'Go back'} onClick={() => navigate(-1)} />
+            <Button title={'Go back'} onClick={handleGoBack} />
 
             <Button title={'Characters list'} onClick={() => navigate(URLS_LIST.LIST, { replace: true })} />
 
             <Button title={'Random character'} onClick={() => navigate(URLS_LIST.HOME, { replace: true })} />
 
-            <Button title={'Go forward'} onClick={() => navigate(1)} />
+            <Button title={'Go forward'} onClick={handleGoForward} />
         </ItemWrapper>
+
 
         <FooterLine>
 
             {text?.toUpperCase()}
-
         </FooterLine>
+
     </React.Fragment>
 }
 

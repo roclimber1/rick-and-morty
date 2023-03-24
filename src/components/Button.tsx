@@ -39,13 +39,20 @@ const BaseButton = styled.button`
 
 
 
+interface ButtonProps {
+    title?: string,
+    name?: string,
+    onClick: React.MouseEventHandler<HTMLButtonElement>
+}
 
-const Button = (props) => {
+
+
+const Button: React.FC<ButtonProps> = (props) => {
 
     const { title = '', name = '', onClick } = props
 
 
-    const handleClick = (event) => {
+    const handleClick: React.MouseEventHandler<HTMLButtonElement> = (event) => {
 
         onClick && onClick(event)
     }

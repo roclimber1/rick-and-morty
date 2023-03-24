@@ -1,13 +1,10 @@
 
-
-
 import React from 'react'
 
 
 import { ItemWrapper } from '../components/Wrapper'
 
 import CharacterCard from '../components/CharacterCard'
-import { Layout } from '../components/RoutesLayout'
 
 import Button from '../components/Button'
 
@@ -20,12 +17,18 @@ import useRequestProcessor from '../hooks/useRequestProcessor'
 
 
 
-const Home = () => {
+import type { Character } from '../interfaces/main'
 
 
-    const [id, setId] = React.useState(getRandomId())
 
-    const data = useRequestProcessor({ requestData: getCharacter, parameters: id })
+
+
+const Home = (): JSX.Element => {
+
+
+    const [id, setId] = React.useState<number>(getRandomId())
+
+    const { loading, data } = useRequestProcessor<Character, number>({ requestData: getCharacter, parameters: id })
 
 
     React.useEffect(() => {
@@ -34,30 +37,25 @@ const Home = () => {
     }, [])
 
 
-    const handleClick = () => {
+    const handleClick: React.MouseEventHandler<HTMLButtonElement> = () => {
 
         setId(getRandomId())
     }
 
 
-    return (<React.Fragment>
 
-        {/* <Layout> */}
+    return (<React.Fragment>
 
         <ItemWrapper>
 
-            <CharacterCard {...data} />
-
+            <CharacterCard loading={loading} data={data} />
         </ItemWrapper>
 
 
         <ItemWrapper>
 
             <Button title={'Update'} onClick={handleClick} />
-
         </ItemWrapper>
-
-        {/* </Layout> */}
 
     </React.Fragment>)
 }
