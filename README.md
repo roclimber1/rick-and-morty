@@ -1,22 +1,24 @@
 # rick-and-morty
 
-Простое приложение с использованием [The Rick and Morty API](https://rickandmortyapi.com/). Отображает случайного персонажа мультфильма, а также список персонажей с постраничной навигацией.
+A simple application using [The Rick and Morty API](https://rickandmortyapi.com/). The application shows random character and characters list.
 
 
-[Здесь ссылка на CodeSandbox](https://codesandbox.io/p/github/roclimber1/rick-and-morty-sandbox/test-task?file=%2FTestTask.md).
+[Here's the CodeSandbox link](https://codesandbox.io/p/github/roclimber1/rick-and-morty-sandbox/test-task?file=%2FTestTask.md).
 
 
-#### Для сборки модулей npm использовать команду
-```bash
+#### To install npm packages use command
+```sh
 npm i
 ```
 
-#### Для запуска использовать команду
-```bash
+#### To start debugging use command
+```sh
 npm run start
 ```
 
-#### Для сборки статики использовать команду
-```bash
+#### To create a bundle use command
+```sh
 npm run build
 ```
+
+[See the result here](https://roclimber1.github.io/pages/rick_and_morty/index.html)
