@@ -37,7 +37,7 @@ const Home = (): JSX.Element => {
     }, [])
 
 
-    const handleClick: React.MouseEventHandler<HTMLButtonElement> = () => {
+    const handleClick: React.MouseEventHandler = () => {
 
         setId(getRandomId())
     }
@@ -48,13 +48,20 @@ const Home = (): JSX.Element => {
 
         <ItemWrapper>
 
-            <CharacterCard loading={loading} data={data} />
+            <CharacterCard
+                loading={loading}
+                data={data}
+                onClick={handleClick}
+            />
         </ItemWrapper>
 
 
         <ItemWrapper>
 
-            <Button title={'Update'} onClick={handleClick} />
+            <Button
+                title={'Update'}
+                onClick={handleClick}
+            />
         </ItemWrapper>
 
     </React.Fragment>)

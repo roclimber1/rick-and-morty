@@ -7,6 +7,10 @@ import Box from './Box'
 
 
 
+import type { ImageSize } from '../interfaces/main'
+
+
+
 
 const coinFlip = keyframes`
     0%, 100% {
@@ -25,20 +29,28 @@ const coinFlip = keyframes`
 `
 
 
-const Loader = styled(Box)`
+interface LoaderProps extends Partial<ImageSize> {
+    size?: number
+}
+
+
+
+const Loader = styled(Box)<LoaderProps>`
 
     transform: translateZ(1px);
 
     &:after {
         content: '';
-        width: 48px;
-        height: 48px;
+        width: ${(props: LoaderProps) => props?.size ? `${props.size}em` : '48px'};
+        height: ${(props: LoaderProps) => props?.size ? `${props.size}em` : '48px'};
         margin: 8px;
         border-radius: 50%;
         background: #3689f1;
         animation: ${coinFlip} 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
     }
 
+    margin: 5px;
+    padding: 10px;
 `
 
 

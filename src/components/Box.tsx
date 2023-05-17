@@ -7,7 +7,7 @@ import type { ImageSize } from '../interfaces/main'
 
 
 
-const Box = styled.section`
+const Box = styled.section<ImageSize>`
 
     width: ${(props: ImageSize) => props?.width ? `${props.width}em` : '10em'};
     height: ${(props: ImageSize) => props?.height ? `${props.height}em` : '10em'};

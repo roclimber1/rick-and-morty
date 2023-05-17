@@ -50,22 +50,24 @@ const CharacterCard: React.FC<CharacterCardProps> = (props) => {
 
     return (<Card onClick={handleClick}>
 
-        {loading && <Loader {...SIZE} />}
+        {loading ? (<Loader {...SIZE} />) : null}
 
-        {!loading && <React.Fragment>
+        {!loading ? (<React.Fragment>
             <Image image={image} {...SIZE} />
 
-            <InfoBlock value={name} fontSize={18} />
+        </React.Fragment>) : null}
 
-            <InfoBlock field={'gender'} value={gender} />
 
-            <InfoBlock field={'species'} value={species} />
+        <InfoBlock value={name} fontSize={18} />
 
-            <InfoBlock field={'status'} value={status} />
+        <InfoBlock field={'gender'} value={gender} />
 
-            {Boolean(type) && <InfoBlock field={'type'} value={type} />}
+        <InfoBlock field={'species'} value={species} />
 
-        </React.Fragment>}
+        <InfoBlock field={'status'} value={status} />
+
+        <InfoBlock field={'type'} value={type || '-'} />
+
     </Card>)
 }
 

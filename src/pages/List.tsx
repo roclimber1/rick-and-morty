@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 
 import CharacterCard from '../components/CharacterCard'
 
-import Loader from '../components/Loader'
+
 import Button from '../components/Button'
 
 import { ItemWrapper, ListWrapper } from '../components/Wrapper'
@@ -55,14 +55,14 @@ const List = () => {
 
     const handleNextPage = React.useCallback((): void => {
 
-        next && setUrl(next)
+        next && !loading && setUrl(next)
 
     }, [next])
 
 
     const handlePrevPage = React.useCallback((): void => {
 
-        prev && setUrl(prev)
+        prev && !loading && setUrl(prev)
 
     }, [prev])
 
@@ -95,21 +95,23 @@ const List = () => {
 
         <ListWrapper>
 
-            {loading && <Loader width={10} height={10} />}
-
-            {!loading && <React.Fragment>
-
-                {charactersBlock}
-
-            </React.Fragment>}
+            {charactersBlock}
 
         </ListWrapper>
 
 
         <ItemWrapper>
-            {Boolean(prev) && <Button title={'Prev page'} onClick={handlePrevPage} />}
 
-            {Boolean(next) && <Button title={'Next page'} onClick={handleNextPage} />}
+            {prev ? (<Button
+                onClick={handlePrevPage}
+                title={'Prev page'}
+            />) : null}
+
+            {next ? (<Button
+                onClick={handleNextPage}
+                title={'Next page'}
+            />) : null}
+
         </ItemWrapper>
 
     </React.Fragment>)
