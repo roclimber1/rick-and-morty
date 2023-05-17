@@ -40,9 +40,9 @@ const BaseButton = styled.button`
 
 
 interface ButtonProps {
-    title?: string,
     name?: string,
-    onClick: React.MouseEventHandler<HTMLButtonElement>
+    onClick: React.MouseEventHandler<HTMLButtonElement>,
+    title?: string
 }
 
 
@@ -63,6 +63,7 @@ const Button: React.FC<ButtonProps> = (props) => {
         onClick={handleClick}
     >
         {title}
+
     </BaseButton>)
 }
 

@@ -11,7 +11,7 @@ interface ImageProps {
 
 
 
-const Image = styled(Box)`
+const Image = styled(Box)<ImageProps>`
 
     background-image: ${(props: ImageProps) => props?.image ? `url(${props.image})` : 'none'};
     background-repeat: no-repeat;

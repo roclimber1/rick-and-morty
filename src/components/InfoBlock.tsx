@@ -23,7 +23,7 @@ interface InfoCenteredProps {
 }
 
 
-const InfoCentered = styled(Info)`
+const InfoCentered = styled(Info)<InfoCenteredProps>`
     font-size: ${(props: InfoCenteredProps) => props?.fontSize ? `${props.fontSize}px;` : '16px;'}
     ${(props: InfoCenteredProps) => props?.centered ? 'justify-content: center;' : ''}
 `
@@ -43,13 +43,13 @@ const InfoBlock: React.FC<InfoBlockProps> = (props) => {
 
     return <InfoCentered centered={!field} fontSize={fontSize} >
 
-        {Boolean(field) && <div>
+        {field ? (<div>
             {field}:
-        </div>}
+        </div>) : null}
 
-        {Boolean(value) && <div>
+        {value ? (<div>
             {value}
-        </div>}
+        </div>) : null}
 
     </InfoCentered>
 }
