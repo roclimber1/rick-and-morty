@@ -50,7 +50,7 @@ const CharacterCard: React.FC<CharacterCardProps> = (props) => {
 
     return (<Card onClick={handleClick}>
 
-        {loading ? (<Loader {...SIZE} />) : null}
+        {loading ? (<Loader id={'test-loader'} {...SIZE} />) : null}
 
         {!loading ? (<React.Fragment>
             <Image image={image} {...SIZE} />
