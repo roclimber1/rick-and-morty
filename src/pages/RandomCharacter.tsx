@@ -46,7 +46,7 @@ const Home = (): JSX.Element => {
 
     return (<React.Fragment>
 
-        <ItemWrapper>
+        <ItemWrapper id={'test-random-card'}>
 
             <CharacterCard
                 loading={loading}

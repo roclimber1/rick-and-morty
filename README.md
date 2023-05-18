@@ -21,4 +21,9 @@ npm run start
 npm run build
 ```
 
+#### To run cypress tests use command
+```sh
+npm run test
+```
+
 [See the result here](https://roclimber1.github.io/pages/rick_and_morty/index.html)
